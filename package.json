@@ -1,14 +1,23 @@
 {
-  "name": "vue-design-system",
-  "version": "3.5.5",
-  "description": "Vue Design System is an open-source tool for building Design Systems with Vue.js",
+  "name": "lux-design-system",
+  "version": "1.0.3",
+  "description": "Library User Experience and Style guide for Princeton University Libary based on Vue Design System",
   "author": "viljamis <me@viljamis.com>",
+  "contributors": [
+    {
+      "name": "Axa Mei Liauw",
+      "email": "axa.mei.liauw@princeton.edu"
+    },
+    {
+      "name": "Shaun Ellis",
+      "email": "shaun@sdellis.com"
+    }
+  ],
   "main": "dist/system/system.js",
   "files": [
     "dist/system"
   ],
-  "homepage": "https://vueds.com",
-  "private": true,
+  "homepage": "https://pulibrary.github.io/lux/",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --config ./build/webpack.dev.conf.js",
@@ -18,14 +27,19 @@
     "build:app": "npm run build",
     "build:system": "npm-run-all theo node:build:system",
     "build:docs": "npm-run-all theo styleguide:build",
+    "build:static": "npm-run-all theo node:build:static",
     "lint": "eslint '**/*.{js,vue}' --cache",
     "node:build": "node ./build/build.js",
     "node:build:system": "node ./build/build-system.js",
+    "node:build:static": "node ./build/build-static.js",
     "styleguide": "vue-styleguidist server --open --config ./config/docs.config.js",
     "styleguide:build": "vue-styleguidist build --config ./config/docs.config.js",
     "theo": "theo ./src/tokens/tokens.yml --transform web --format map.scss,scss,raw.json,json --dest ./src/assets/tokens",
     "theo:onchange": "onchange \"./src/tokens/*.yml\" -- npm run theo",
-    "test": "npm-run-all theo unit"
+    "test": "npm-run-all theo unit",
+    "deploy": "npm run build:app; npm run build:docs; push-dir --dir=dist --branch=gh-pages --cleanup",
+    "release": "np && npm run deploy",
+    "version": "npm-run-all build:system build:static && git add ."
   },
   "husky": {
     "hooks": {
@@ -34,15 +48,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viljamis/vue-design-system.git"
+    "url": "git+https://github.com/pulibrary/lux.git"
   },
   "keywords": [
-    "vue design system",
-    "design system",
-    "vue.js",
-    "vue",
-    "design",
-    "system"
+    "lux design system",
+    "library ux",
+    "princeton"
   ],
   "babel": {
     "presets": [

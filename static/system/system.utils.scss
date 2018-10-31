@@ -1,4 +1,3 @@
-
 $color-grayscale-light: rgb(186, 190, 197);
 $color-tan: rgb(188, 139, 82);
 $color-bleu-de-france-dark: rgb(45, 112, 180);
@@ -38,8 +37,8 @@ $font-size-x-large-min: 1.266em;
 $font-size-xxx-large-min: 1.602em;
 $font-size-xx-large-min: 1.424em;
 $font-size-base: 16px;
-$font-family-heading: 'franklin-gothic-urw', Helvetica, Arial, sans-serif;
-$font-family-text: 'franklin-gothic-urw', Helvetica, Arial, sans-serif;
+$font-family-heading: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
+$font-family-text: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
 $font-weight-bold: 700;
 $font-weight-semi-bold: 600;
 $font-weight-regular: 400;
@@ -52,13 +51,23 @@ $duration-quickly: 0.08s;
 $duration-slowly: 0.5s;
 $z-index-modal: 9999;
 $z-index-sticky: 100;
-$media-query-medium: (min-width: 600px);
-$media-query-large: (min-width: 900px);
-$media-query-x-large: (min-width: 1200px);
-$media-query-xx-large: (min-width: 1800px);
-$media-query-xxx-large: (min-width: 2300px);
-$box-shadow-small: 0 0 0 1px rgba(92,106,196,.1);
-$box-shadow-small-inset: inset 0 0 0 1px rgba(0,0,0,.05);
+$media-query-medium: (
+  min-width: 600px,
+);
+$media-query-large: (
+  min-width: 900px,
+);
+$media-query-x-large: (
+  min-width: 1200px,
+);
+$media-query-xx-large: (
+  min-width: 1800px,
+);
+$media-query-xxx-large: (
+  min-width: 2300px,
+);
+$box-shadow-small: 0 0 0 1px rgba(92, 106, 196, 0.1);
+$box-shadow-small-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 $box-shadow-selected: 0 0 0 1px #e77500;
 $letter-spacing-x-large: 2px;
 $letter-spacing-large: 1px;

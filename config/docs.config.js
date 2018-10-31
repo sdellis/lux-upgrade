@@ -8,7 +8,7 @@ module.exports = {
   /**
    * Name of your design system. Changes both page title and sidebar logo.
    */
-  title: "Vue Design System",
+  title: "LUX Design System",
   /**
    * Most of the styles are defined in /docs/docs.styles.scss
    */
@@ -58,13 +58,6 @@ module.exports = {
     {
       name: "Design Principles",
       content: "../docs/principles.md",
-      sectionDepth: 1,
-      exampleMode: "hide",
-      usageMode: "hide",
-    },
-    {
-      name: "Voice & Tone",
-      content: "../docs/voice-and-tone.md",
       sectionDepth: 1,
       exampleMode: "hide",
       usageMode: "hide",
@@ -123,15 +116,22 @@ module.exports = {
       sectionDepth: 2,
     },
     {
-      name: "Downloads",
-      content: "../docs/downloads.md",
-      exampleMode: "hide",
-      usageMode: "hide",
+      name: "Adding Icons",
+      content: "../docs/adding-icons.md",
+      exampleMode: "collapse",
+      usageMode: "collapse",
       sectionDepth: 1,
     },
     {
       name: "FAQ",
       content: "../docs/faq.md",
+      exampleMode: "collapse",
+      usageMode: "collapse",
+      sectionDepth: 1,
+    },
+    {
+      name: "Glossary",
+      content: "../docs/glossary.md",
       exampleMode: "hide",
       usageMode: "hide",
       sectionDepth: 1,
@@ -152,7 +152,7 @@ module.exports = {
    * Custom wrapper template for the documentation.
    */
   template: {
-    title: "Example — Vue Design System",
+    title: "Example — LUX Design System",
     lang: "en",
     trimWhitespace: true,
     head: {

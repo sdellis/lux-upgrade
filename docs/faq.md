@@ -15,9 +15,13 @@ The development environment supports the following browsers. If we want to edit 
 | Safari            | Last 2 versions |
 | Internet Explorer | 11              |
 
-## How do I integrate this with Rails?
+## How do I install LUX?
 
-See the [Sample Rails App](https://github.com/pulibrary/UI-Vue-Test) to learn more about Rails integration. This setup allows one to simply copy and paste components from these docs into your Rails Views.
+Please see the [documentation on Installing LUX in our wiki](https://github.com/pulibrary/lux/wiki/How-to-install-LUX).
+
+## How do I manage state in my components?
+
+Please see the [documentation on State Management in our wiki](https://github.com/pulibrary/lux/wiki/State-Management).
 
 ## Why Vue and not React, Jekyll, or some other tool?
 
