@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuBar.vue has the expected html structure 1`] = `
+<nav
+  class="lux-nav"
+>
+  <ul>
+    <li>
+      <a
+        class="lux-nav-item lux-active"
+        href="/example/"
+      >
+        Foo
+      </a>
+    </li>
+    <li>
+      <a
+        class="lux-nav-item"
+        href="/example/"
+      >
+        Bar
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

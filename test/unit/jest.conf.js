@@ -14,8 +14,14 @@ module.exports = {
   snapshotSerializers: ["<rootDir>/node_modules/jest-serializer-vue"],
   setupFiles: ["<rootDir>/test/unit/setup"],
   coverageDirectory: "<rootDir>/test/unit/coverage",
+  testPathIgnorePatterns: [
+    "<rootDir>/test/unit/gallery-store-config.spec.js",
+    "<rootDir>/test/unit/resource-store-config.spec.js",
+  ],
   collectCoverageFrom: [
     "<rootDir>/src/ExampleComponent.js",
+    "<rootDir>/src/elements/*.{js,vue}",
+    "<rootDir>/src/patterns/*.{js,vue}",
     "<rootDir>/src/util/**/*.{js,vue}",
     "<rootDir>/docs/**/*.{js,vue}",
     "!<rootDir>/src/main.js",
@@ -26,5 +32,7 @@ module.exports = {
     "!<rootDir>/docs/components/status/*",
     "!<rootDir>/docs/components/Preview.js",
     "!<rootDir>/docs/utils/tabs.js",
+    "!<rootDir>/test/unit/gallery-store-config.spec.js",
+    "!<rootDir>/test/unit/resource-store-config.spec.js",
   ],
 }
