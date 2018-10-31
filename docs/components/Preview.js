@@ -1,5 +1,6 @@
 import CodeMirror from "codemirror"
 import CodeTabs from "../utils/tabs.js"
+import store from "../../src/store"
 
 function format(node, level) {
   const indentBefore = new Array(level++ + 1).join("  ")
@@ -24,6 +25,7 @@ function format(node, level) {
 export default previewComponent => {
   // https://vuejs.org/v2/guide/render-function.html
   return {
+    store,
     render(createElement) {
       return createElement(previewComponent)
     },

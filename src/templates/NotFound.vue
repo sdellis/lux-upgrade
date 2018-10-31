@@ -1,13 +1,13 @@
 <template>
-  <component :is="type" class="not-found">
-    <NavBar active="NotFound" :navItems="[
+  <component :is="type" class="lux-not-found">
+    <menu-bar active="NotFound" :menuItems="[
       {name: 'Template', component: 'Index', href: '/#/'},
-      {name: 'Documentation', href: 'http://localhost:6060/'}
+      {name: 'Living Docs', href: 'http://localhost:6060/'}
     ]"/>
-    <Wrapper>
-      <Heading>404 Error</Heading>
-      <Paragraph>Couldn’t find a component that would match the URL you entered. Double check configuration in router/index.js.</Paragraph>
-    </Wrapper>
+    <wrapper>
+      <heading level="h1">404 Error</heading>
+      <text-style>Couldn’t find a component or page that matches the URL you entered. Double check configuration in router/index.js.</text-style>
+    </wrapper>
   </component>
 </template>
 
@@ -17,8 +17,11 @@
  */
 export default {
   name: "NotFound",
+  status: "prototype",
+  release: "1.0.0",
+  type: "Template",
   metaInfo: {
-    title: "Page Not Found | Vue Design System",
+    title: "Page Not Found | LUX Design System",
     htmlAttrs: {
       lang: "en",
     },
@@ -43,10 +46,10 @@ $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
 $color-template-link: $color-bleu-de-france;
 
-.not-found {
+.lux-not-found {
   @include reset;
-  @include inset-space($space-m);
-  min-height: $space-xxl * 4;
+  @include inset-space($space-base);
+  min-height: $space-xx-large * 4;
   background: $color-template-background;
   background: linear-gradient(0deg, $color-template-background-bottom, $color-template-background-top 100%);
   text-align: center;
@@ -54,19 +57,17 @@ $color-template-link: $color-bleu-de-france;
   float: left;
   height: 100%;
   width: 100%;
-  .heading {
+  .lux-heading {
     color: $color-template-text;
   }
-  .paragraph {
+  .lux-text-style {
     color: $color-template-text;
   }
-  .text-link {
+  .lux-text-link {
     color: $color-template-link;
   }
-  .wrapper {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    max-width: $space-xxl * 4.5;
+  .lux-wrapper {
+    max-width: $space-xx-large * 4.5;
     transform: translateX(-50%) translateY(-50%);
     position: absolute;
     left: 50%;
@@ -77,6 +78,6 @@ $color-template-link: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <NotFound />
+  <not-found />
   ```
 </docs>

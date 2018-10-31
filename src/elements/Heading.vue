@@ -1,5 +1,5 @@
 <template>
-  <component :is="level" class="heading">
+  <component :is="level" class="lux-heading" :class="{'lux-hidden': hidden}">
     <slot/>
   </component>
 </template>
@@ -12,8 +12,9 @@
  */
 export default {
   name: "Heading",
-  status: "prototype",
+  status: "ready",
   release: "1.0.0",
+  type: "Element",
   props: {
     /**
      * The heading level used for the heading.
@@ -26,59 +27,92 @@ export default {
         return value.match(/(h1|h2|h3|h4|h5|h6)/)
       },
     },
+    /**
+     * Whether the heading is visually hidden or not.
+     * `true, false`
+     */
+    hidden: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.heading {
+.lux-heading {
   @include reset;
-  @include stack-space($space-m);
-  font-family: $font-heading;
-  line-height: $line-height-xs;
+  @include stack-space($space-base);
+  font-family: $font-family-heading;
+  line-height: $line-height-heading;
   color: $color-rich-black;
-  @media #{$media-query-l} {
-    // This is how you’d use design tokens with media queries
-  }
 }
+
+.lux-hidden {
+  @include visually-hidden;
+}
+
 h1 {
-  letter-spacing: $spacing-xs;
-  font-size: $size-xxl;
-  font-weight: $weight-semi-bold;
-  @media #{$media-query-l} {
-    font-size: $size-xxxl;
-  }
+  @include responsive-font(3vw, $font-size-xxx-large-min, $font-size-xxx-large-max, $font-size-xxx-large);
+  letter-spacing: $letter-spacing-x-small;
+  font-weight: $font-weight-bold;
 }
+
 h2 {
-  letter-spacing: $spacing-s;
-  font-size: $size-xxl;
-  font-weight: $weight-semi-bold;
+  @include responsive-font(2.5vw, $font-size-xx-large-min, $font-size-xx-large-max, $font-size-xx-large);
+  letter-spacing: $letter-spacing-small;
+  font-weight: $font-weight-bold;
 }
+
 h3 {
-  font-size: $size-xl;
-  font-weight: $weight-semi-bold;
+  @include responsive-font(2vw, $font-size-x-large-min, $font-size-x-large-max, $font-size-x-large);
+  font-weight: $font-weight-bold;
 }
+
 h4 {
-  font-size: $size-l;
-  font-weight: $weight-semi-bold;
+  @include responsive-font(1.5vw, $font-size-large-min, $font-size-large-max, $font-size-large);
+  font-weight: $font-weight-semi-bold;
 }
+
 h5 {
-  font-size: $size-m;
-  font-weight: $weight-normal;
+  @include responsive-font(1vw, $font-size-base-min, $font-size-base-max, $font-size-base);
+  font-weight: $font-weight-regular;
 }
+
 h6 {
-  font-size: $size-s;
-  font-weight: $weight-normal;
+  font-size: $font-size-small;
+  font-weight: $font-weight-regular;
 }
 </style>
 
 <docs>
   ```jsx
   <div>
-    <Heading>The quick brown fox</Heading>
-    <Heading level="h2">The quick brown fox</Heading>
-    <Heading level="h3">The quick brown fox</Heading>
-    <Heading level="h4">The quick brown fox</Heading>
+    <heading level="h1" hidden>The quick brown fox</heading>
+    <heading level="h2">The quick brown fox</heading>
+    <heading level="h3">The quick brown fox</heading>
+    <heading level="h4">The quick brown fox</heading>
   </div>
   ```
+
+  ```jsx noeditor
+  <div class="dos-n-donts">
+    <div class="do">
+      <div class="do-dont-example">
+        <heading level="h1">Do this.</heading>
+        <heading level="h2">Do this.</heading>
+      </div>
+      <p>Nest headings appropriately by level.</p>
+    </div>
+
+    <div class="dont">
+      <div class="do-dont-example">
+        <heading level="h2">Don't do this.</heading>
+        <heading level="h1">Don't do this.</heading>
+      </div>
+      <p>If you nest headings out of order or skip levels, the lack of organization of content on the page will confuse users.</p>
+    </div>
+  </div>
+  ```
+
 </docs>

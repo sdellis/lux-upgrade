@@ -4,19 +4,40 @@
 #
 
 props:
-  size_xxxl:
+  font_size_xxx_large_max:
+    value: "3.157em"
+  font_size_xxx_large_min:
+    value: "1.602em"
+  font_size_xx_large_max:
+    value: "2.369em"
+  font_size_xx_large_min:
+    value: "1.424em"
+  font_size_x_large_max:
+    value: "1.777em"
+  font_size_x_large_min:
+    value: "1.266em"
+  font_size_large_max:
+    value: "1.333em"
+  font_size_large_min:
+    value: "1.125em"
+  font_size_base_max:
+    value: "1.125em"
+  font_size_base_min:
+    value: "1em"
+
+  font_size_xxx_large:
     value: "64px"
-  size_xxl:
+  font_size_xx_large:
     value: "48px"
-  size_xl:
+  font_size_x_large:
     value: "36px"
-  size_l:
+  font_size_large:
     value: "24px"
-  size_m:
+  font_size_base:
     value: "16px"
-  size_s:
+  font_size_small:
     value: "13px"
-  size_xs:
+  font_size_x_small:
     value: "11px"
 global:
   type: number

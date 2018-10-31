@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['text-style', variation]">
+  <component :is="type" :class="['lux-text-style ', variation]">
     <slot/>
   </component>
 </template>
@@ -14,17 +14,14 @@ export default {
   name: "TextStyle",
   status: "ready",
   release: "1.0.0",
+  type: "Element",
   props: {
     /**
-     * The html element used for the text style.
-     * `span, em, i, strong`
+     * The html element name used for the text
      */
     type: {
       type: String,
-      default: "span",
-      validator: value => {
-        return value.match(/(span|em|i|strong)/)
-      },
+      default: "p",
     },
     /**
      * Style variation to give additional meaning.
@@ -34,7 +31,7 @@ export default {
       type: String,
       default: "default",
       validator: value => {
-        return value.match(/(default|disabled|strong|positive|negative)/)
+        return value.match(/(default|disabled|strong|emphasis|positive|negative)/)
       },
     },
   },
@@ -45,29 +42,32 @@ export default {
 // Design Tokens with local scope
 $positive-text: #7cb518;
 
-.text-style {
+.lux-text-style {
   @include reset;
-  @include stack-space($space-s);
+  @include stack-space($space-small);
   color: $color-rich-black;
-  font-family: $font-text;
-  font-weight: $weight-normal;
-  font-size: $size-m;
-  line-height: $line-height-m;
-  @media #{$media-query-l} {
+  font-family: $font-family-text;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  @media #{$media-query-large} {
     // This is how you’d use design tokens with media queries
   }
   &.disabled {
-    color: tint($color-rich-black, 50%);
+    color: tint($color-rich-black, 40%);
     text-decoration: line-through;
   }
   &.strong {
-    font-weight: $weight-semi-bold;
+    font-weight: $font-weight-semi-bold;
+  }
+  &.emphasis {
+    font-style: italic;
   }
   &.positive {
     color: shade($positive-text, 20%);
   }
   &.negative {
-    color: $color-vermilion;
+    color: $color-red;
   }
 }
 </style>
@@ -76,11 +76,10 @@ $positive-text: #7cb518;
 <docs>
   ```jsx
   <div>
-    <TextStyle variation="default">Design isn’t just about the look and feel.</TextStyle>
-    <br />
-    <TextStyle variation="disabled">Design isn’t just about</TextStyle>
-    <br />
-    <TextStyle variation="strong">Design isn’t</TextStyle>
+    <text-style variation="default">Design isn’t just about the look and feel. Design is how it works.</text-style>
+    <text-style variation="disabled">Design isn’t just about the look and feel.</text-style>
+    <text-style variation="strong">Design isn’t just about look and feel.</text-style>
+    <text-style variation="emphasis">Design is how it works.</text-style>
   </div>
   ```
 </docs>

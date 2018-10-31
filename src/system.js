@@ -1,18 +1,22 @@
 /**
  * System.js creates the Design System Library.
- * It’s used in the system itself and when exporting it.
- *
- * You should & can add your own dependencies here if needed.
+ * Used both in dev environment and when exporting the system.
  */
+import "es6-promise/auto"
+import instance from "@/utils/vueInstance"
+import vuexModules from "@/store/modules"
+import WebFontLoader from "@/utils/webFontLoader"
+export const modules = vuexModules
 
-// Define contexts to require
+// Defines contexts to require
 const contexts = [
   require.context("@/elements/", true, /\.vue$/),
   require.context("@/patterns/", true, /\.vue$/),
+  require.context("@/icons/", true, /\.vue$/),
+  require.context("@/logos/", true, /\.vue$/),
   require.context("@/templates/", true, /\.vue$/),
 ]
 
-// Define components
 const components = []
 contexts.forEach(context => {
   context.keys().forEach(key => components.push(context(key).default))
@@ -29,6 +33,8 @@ const System = {
 if (typeof window !== "undefined" && window.Vue) {
   window.Vue.use(System)
 }
+
+export { instance }
 
 // Finally export as default
 export default System

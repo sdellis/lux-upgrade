@@ -83,6 +83,22 @@ module.exports = {
       ],
     },
     {
+      name: "Icons",
+      content: "../docs/icons.md",
+      components: "../src/icons/**/[A-Z]*.vue",
+      exampleMode: "expand",
+      usageMode: "expand",
+      sectionDepth: 2,
+    },
+    {
+      name: "Logos",
+      content: "../docs/logos.md",
+      components: "../src/logos/**/[A-Z]*.vue",
+      exampleMode: "expand",
+      usageMode: "expand",
+      sectionDepth: 2,
+    },
+    {
       name: "Elements",
       content: "../docs/elements.md",
       components: "../src/elements/**/[A-Z]*.vue",
@@ -209,4 +225,5 @@ module.exports = {
   //     res.redirect(req.params.file)
   //   })
   // },
+  vuex: "../src/store/index",
 }

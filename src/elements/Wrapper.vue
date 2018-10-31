@@ -1,6 +1,7 @@
 <template>
-  <component :is="type" class="wrapper">
-    <slot />
+  <component :is="type"
+    :class="['lux-wrapper', { 'lux-full-width': fullWidth }]">
+    <slot/>
   </component>
 </template>
 
@@ -11,8 +12,9 @@
  */
 export default {
   name: "Wrapper",
-  status: "review",
+  status: "ready",
   release: "1.0.0",
+  type: "Element",
   props: {
     /**
      * The html element name used for the wrapper.
@@ -21,21 +23,30 @@ export default {
       type: String,
       default: "div",
     },
+    /**
+     * Determines whether the wrapper takes up 100% of the parent container.
+     */
+    fullWidth: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.lux-wrapper {
   @include reset;
-  @include inset-space($space-l);
-  font-family: $font-text;
-  font-weight: $weight-normal;
-  font-size: $size-m;
-  line-height: $line-height-m;
-  width: 100%;
-  @media #{$media-query-l} {
-    @include inset-space($space-xl);
+  margin: auto;
+
+  // this overrides the full-width class rules making the OrderManager gallery
+  // have a gap on larger screens
+  // @media #{$media-query-large} {
+  //   max-width: 1170px;
+  // }
+
+  .lux-full-width {
+    width: 100%;
   }
 }
 </style>
@@ -43,6 +54,6 @@ export default {
 
 <docs>
   ```jsx
-  <Wrapper>Wrapper can be used to wrap any components together.</Wrapper>
+  <wrapper type="div">Wrapper can be used to wrap any components together.</wrapper>
   ```
 </docs>

@@ -4,15 +4,15 @@
 #
 
 props:
-  spacing_xl:
+  letter_spacing_x_large:
     value: "2px"
-  spacing_l:
+  letter_spacing_large:
     value: "1px"
-  spacing_m:
+  letter_spacing_base:
     value: "0"
-  spacing_s:
+  letter_spacing_small:
     value: "-0.5px"
-  spacing_xs:
+  letter_spacing_x_small:
     value: "-1px"
 global:
   type: number
